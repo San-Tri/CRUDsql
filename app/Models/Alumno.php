@@ -1,25 +1,14 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Models;
 
-class CreateAlumnosTable extends Migration
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Alumno extends Model
 {
-    public function up()
-    {
-        Schema::create('alumnos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->string('apellido');
-            $table->string('email')->unique();
-            $table->timestamps();
-        });
-    }
+    use HasFactory;
 
-    public function down()
-    {
-        Schema::dropIfExists('alumnos');
-    }
+    protected $fillable = ['nombre', 'apellido', 'email'];
 }
 
